@@ -18,7 +18,10 @@ const io = new Server(server, {
 
 // middlewares
 dotenv.config();
-app.use(cors());
+app.use(cors({
+  origin: ["https://meme-marketplace-beryl.vercel.app/"],
+  methods: ["GET", "POST"],
+}));
 app.use(express.json());
 app.use("/api/memes", memeRoutes);
 
