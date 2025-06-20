@@ -11,7 +11,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://meme-marketplace-beryl.vercel.app/",
+    origin: "https://meme-marketplace-frontend-2.onrender.com",
     methods: ["GET", "POST"],
   },
 });
@@ -19,7 +19,7 @@ const io = new Server(server, {
 // middlewares
 dotenv.config();
 app.use(cors({
-  origin: ["https://meme-marketplace-beryl.vercel.app/"],
+  origin: ["https://meme-marketplace-frontend-2.onrender.com"],
   methods: ["GET", "POST"],
 }));
 app.use(express.json());
