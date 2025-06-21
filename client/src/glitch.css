@@ -1,0 +1,65 @@
+@keyframes glitch {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    25% {
+      transform: translate(-3px, 3px) skew(-5deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(3px, -3px) skew(5deg);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translate(-1px, 1px) skew(-3deg);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+  
+  .glitch {
+    animation: glitch 0.5s infinite;
+  }
+
+  .Hover-glitch:hover {
+    animation: glitch 0.5s infinite;
+  }
+
+  .neon {
+    color: #f0f;
+    text-shadow:
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #f0f,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    transition: all 0.2s ease;
+  }
+
+  .neon-red {
+    color: rgb(0, 255, 255);
+    text-shadow:
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #f0f,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    transition: all 0.2s ease;
+  }
+
+  .hover-neon:hover {
+    color: #f0f;
+    text-shadow:
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #f0f,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    transition: all 0.2s ease;
+
+  }
+  

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@keyframes glitch {
+    0% { transform: translate(0, 0); opacity: 1; }
+    25% { transform: translate(-3px, 3px) skew(-5deg); opacity: 0.8; }
+    50% { transform: translate(3px, -3px) skew(5deg); opacity: 0.6; }
+    75% { transform: translate(-1px, 1px) skew(-3deg); opacity: 0.9; }
+    100% { transform: translate(0, 0); opacity: 1; }
+  }
+  
+  .glitch-test {
+    animation: glitch 1s infinite;
+    color: #ff00ff;
+    font-size: 2rem;
+  }
+
+body {
+    background-color: #9a11acfb;
+    background: linear-gradient(to bottom, #3825c4fb, #bab7d2fb);
+}
+
+ .input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    color: white;
+    outline: none;
+  }
+  
+.MemeForm-div {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.BidPanel-div {
+    margin-top: 10px;
+}

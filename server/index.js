@@ -5,20 +5,24 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const PORT = process.env.PORT || 3001;
 const memeRoutes = require("./routes/memes.js");
+const supabase = require("./supabase");
 
 // setup
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://meme-marketplace-beryl.vercel.app/",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
   },
 });
 
 // middlewares
 dotenv.config();
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ['GET', 'POST'],
+}));
 app.use(express.json());
 app.use("/api/memes", memeRoutes);
 
@@ -42,6 +46,27 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
   res.send("root");
 });
+
+app.post('/memes', async(req,res) => {
+  console.log(req.body);
+  const memePayload = req.body;
+
+  try {
+    const {data, error} = await supabase
+    .from ('memes')
+    .insert([memePayload])
+    .select()
+    .single();
+
+    if (error) throw error;
+
+    console.log('new meme uploaded to DB');
+    res.status(201).json(data);
+  } catch (error) {
+    console.error('Failed to insert meme', error.message);
+    res.status(500).json({error: 'Failed to save meme'});
+  } 
+})
 
 server.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
