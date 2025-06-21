@@ -12,7 +12,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
+<<<<<<< HEAD
     origin: "http://localhost:5173",
+=======
+    origin: ["https://meme-marketplace-frontend.onrender.com"],
+>>>>>>> 7c01c56d7976174cfc6b3734ada0db961de111f8
     methods: ["GET", "POST"],
   },
 });
@@ -20,8 +24,13 @@ const io = new Server(server, {
 // middlewares
 dotenv.config();
 app.use(cors({
+<<<<<<< HEAD
   origin: "http://localhost:5173",
   methods: ['GET', 'POST'],
+=======
+  origin: ["https://meme-marketplace-frontend.onrender.com"],
+  methods: ["GET", "POST"],
+>>>>>>> 7c01c56d7976174cfc6b3734ada0db961de111f8
 }));
 app.use(express.json());
 app.use("/api/memes", memeRoutes);
